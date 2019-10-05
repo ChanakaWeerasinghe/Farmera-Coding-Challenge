@@ -75,7 +75,17 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+
+  --ion-color-lightgreen: #c8d633;
+  --ion-color-lightgreen-rgb: 255, 215, 0;
+  --ion-color-lightgreen-contrast: #000000;
+  --ion-color-lightgreen-contrast-rgb: 0, 0, 0;
+  --ion-color-lightgreen-shade: #d6ca72;
+  --ion-color-lightgreen-tint: #c8d633;
+
+
   --ion-font-family: 'Roboto Light';
+
 
 }
 
@@ -83,5 +93,5 @@
   font-family: 'Roboto Light';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/fonts/Roboto-Thinitalic.ttf');
+  src: url('../assets/fonts/Roboto-Light.ttf');
 }

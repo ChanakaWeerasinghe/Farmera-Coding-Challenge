@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+.gradient-header{
+  --background: linear-gradient(233deg, #4b626e , #263238);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+  --color:#ffffff;
+}
+
+.ion-color-lightgreen {
+  --ion-color-base: var(--ion-color-lightgreen) !important;
+  --ion-color-base-rgb: var(--ion-color-lightgreen-rgb) !important;
+  --ion-color-contrast: var(--ion-color-lightgreen-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-lightgreen-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-lightgreen-shade) !important;
+  --ion-color-tint: var(--ion-color-lightgreen-tint) !important;
+}
+
+
