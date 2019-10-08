@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ActionSheetController} from '@ionic/angular';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UserApiService} from '../../services/user-api.service';
 import {Result} from '../../models/models';
 
@@ -14,7 +14,7 @@ export class HomePage {
     alert: any;
     private userArray: Result[];
 
-    constructor(private userApiService: UserApiService, public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
+    constructor( private router: Router,private userApiService: UserApiService, public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -26,6 +26,11 @@ export class HomePage {
         );
     }
 
+    navigateToLogBook()
+    {
+
+        this.router.navigate(['/log-book', { data: "LogBook" }]);
+    }
 
 
     async presentActionSheet() {
@@ -86,8 +91,7 @@ export class HomePage {
 
     private mapToNewArray(userArray: Result[]) {
         let newUserArray;
-        userArray.forEach(array=>{
-            console.log(array)
-        })
+        console.log(userArray)
+        // for(let index=0;userArray.length)
     }
 }
