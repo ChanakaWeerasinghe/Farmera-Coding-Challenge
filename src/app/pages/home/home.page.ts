@@ -80,4 +80,12 @@ export class HomePage {
         this.alert = alert;
         console.log("Show Notification ",this.alert);
     }
+
+    messageFunc(i: number) {
+        console.log("messege ", i)
+    }
+
+    callFunc(i: number) {
+        console.log("call ", i)
+    }
 }

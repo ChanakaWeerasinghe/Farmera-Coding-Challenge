@@ -61,8 +61,8 @@
                                 <h2>{{item.name.title}} {{item.name.first}} {{item.name.last}}</h2>
                                 <p>last check in 11 hours ago</p>
                             </ion-label>
-                            <ion-icon name="md-message" item-right></ion-icon>
-                            <ion-icon name="phone" item-right></ion-icon>
+                            <ion-icon name="md-message" item-right (click)="messageFunc(i)"></ion-icon>
+                            <ion-icon name="phone" item-right (click)="callFunc(i)"></ion-icon>
 
                         </ion-item>
                     </div>
