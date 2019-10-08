@@ -3,6 +3,7 @@ import {ActionSheetController} from '@ionic/angular';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserApiService} from '../../services/user-api.service';
 import {Result} from '../../models/models';
+import {LoadingService} from '../../services/loading.service';
 
 @Component({
     selector: 'app-home',
@@ -14,14 +15,17 @@ export class HomePage {
     alert: any;
     private userArray: Result[];
 
-    constructor(private router: Router, private userApiService: UserApiService, public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
+    constructor(public loading: LoadingService,private router: Router, private userApiService: UserApiService, public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
+        this.loading.present();
         this.userApiService.getUsers().subscribe(data => {
                 this.userArray = data.results;
                 console.log(this.userArray);
-            }
+                this.loading.dismiss()
+            },
+            err =>{ console.log('HTTP Error', err),this.loading.dismiss()}
         );
     }
 
