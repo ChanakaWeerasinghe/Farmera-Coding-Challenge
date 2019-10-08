@@ -7,6 +7,9 @@ div.left {
   text-align: left;
 }
 
+p.red {
+ color: red;
+}
 
 .round {
   --width: 60px;
@@ -16,5 +19,13 @@ div.left {
   --padding-start: 10px;
   --padding-end: 10px;
 }
+
+ion-card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(38, 50, 56, 0.1);
+  border-radius: 30px !important;
+
+}
+
 
 

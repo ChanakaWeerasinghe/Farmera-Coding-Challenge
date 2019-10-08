@@ -1,14 +1,16 @@
 import {Component} from '@angular/core';
 import {ActionSheetController} from '@ionic/angular';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+    private hide: boolean=true;
+    alert: any;
 
-    constructor(public actionSheetController: ActionSheetController) {
+    constructor(public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
     }
 
     async presentActionSheet() {
@@ -40,5 +42,10 @@ export class HomePage {
             ]
         });
         await actionSheet.present();
+    }
+
+    showHide(hide) {
+        console.log(hide)
+        this.hide = !hide;
     }
 }
