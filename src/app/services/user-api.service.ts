@@ -11,12 +11,7 @@ export class UserApiService {
   base_path = 'https://randomuser.me/api/?results=3';
 
   constructor(private http: HttpClient) {}
-  // Http Options
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
+
   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -35,8 +30,8 @@ export class UserApiService {
   };
 
 
-
   getUsers(): Observable<RootObject> {
+    console.error('getUsers() Method Invoked:');
     return this.http
         .get<RootObject>(this.base_path)
         .pipe(
@@ -45,24 +40,5 @@ export class UserApiService {
         )
   }
 
-  // // Get single student data by ID
-  // getItem(id): Observable<UserObject> {
-  //   return this.http
-  //       .get<Student>(this.base_path + '/' + id)
-  //       .pipe(
-  //           retry(2),
-  //           catchError(this.handleError)
-  //       )
-  // }
-  //
-  // // Get students data
-  // getList(): Observable<Student> {
-  //   return this.http
-  //       .get<Student>(this.base_path)
-  //       .pipe(
-  //           retry(2),
-  //           catchError(this.handleError)
-  //       )
-  // }
 
 }
