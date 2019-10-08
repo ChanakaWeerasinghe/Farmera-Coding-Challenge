@@ -1,22 +1,34 @@
 import {Component} from '@angular/core';
 import {ActionSheetController} from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {UserApiService} from '../../services/user-api.service';
+import {Result} from '../../models/models';
+
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-    private hide: boolean=true;
+    private hide: boolean = true;
     alert: any;
+    private userArray: Result[];
 
-    constructor(public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
+    constructor(private userApiService: UserApiService, public actionSheetController: ActionSheetController, private activatedRoute: ActivatedRoute) {
     }
 
-    async presentActionSheet() {
+    ngOnInit() {
+        this.userApiService.getUsers().subscribe(data => {
+                this.userArray = data.results;
+                console.log(this.userArray);
+                this.mapToNewArray(this.userArray);
+            }
+        );
+    }
 
-        // (add
-        // pigs, move pigs and sale pigs)
+
+
+    async presentActionSheet() {
         const actionSheet = await this.actionSheetController.create({
             header: 'Manage Pigs',
             buttons: [{
@@ -45,7 +57,37 @@ export class HomePage {
     }
 
     showHide(hide) {
-        console.log(hide)
+        console.log(hide);
         this.hide = !hide;
+    }
+
+    isHide(i: any) {
+        if (i === 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    checkShowHide(i: number) {
+       if(i===0)
+       {
+           return true;
+       }
+        if (!this.hide) {
+            return true;
+        }
+        else if(this.hide){
+            return false;
+        }
+
+
+    }
+
+    private mapToNewArray(userArray: Result[]) {
+        let newUserArray;
+        userArray.forEach(array=>{
+            console.log(array)
+        })
     }
 }

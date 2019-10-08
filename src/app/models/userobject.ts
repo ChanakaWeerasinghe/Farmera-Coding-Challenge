@@ -73,6 +73,7 @@ export interface Result {
     id: Id;
     picture: Picture;
     nat: string;
+    checkin : string;
 }
 
 export interface Info {
@@ -85,6 +86,7 @@ export interface Info {
 export interface RootObject {
     results: Result[];
     info: Info;
+    checkin?: "2018-10-10";
 }
 
 
